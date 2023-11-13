@@ -31,6 +31,7 @@ class LinkScreen extends StatelessWidget {
                 const SizedBox(height: tDefaultSize * 2),
                 GestureDetector(
                   onTap: () {
+                    Get.to(ViewScreen());
                     // Handle the tap on the dynamic link text
                     // You can navigate to the relevant screen using GetX navigation or any other method
                      //Get.toNamed(const ViewScreen() as String, arguments: dynamicLinkController.linkData);

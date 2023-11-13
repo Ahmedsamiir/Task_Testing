@@ -14,32 +14,57 @@ class ViewScreen extends StatelessWidget {
 
     return SafeArea(
       child: Scaffold(
-        body: Container(
-          padding: const EdgeInsets.all(tDefaultSize),
-          child:  Column(
-            children: [
-              const SizedBox(height: tDefaultSize,),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(tFullName, style: Theme.of(context).textTheme.titleMedium,),
-                  Text("name", style: Theme.of(context).textTheme.titleSmall,)
-                ],
-              ),
-              const SizedBox(height: tDefaultSize / 3,),
+        body: Center(
+          child: Container(
+            padding: const EdgeInsets.all(tDefaultSize),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                const SizedBox(
+                  height: tDefaultSize,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Name",
+                      style: Theme.of(context).textTheme.titleMedium,
+                    ),
+                    const SizedBox(
+                      height: tDefaultSize,
+                    ),
 
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Text(tEmail, style: Theme.of(context).textTheme.titleMedium,),
-                  Text("email", style: Theme.of(context).textTheme.titleSmall,)
-                ],
-              ),
-            ],
+                    Text(
+                      tEmail,
+                      style: Theme.of(context).textTheme.titleMedium,
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  width: tDefaultSize / 3,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Ahmed Samir Ibrahim",
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
+                    const SizedBox(
+                      height: tDefaultSize,
+                    ),
+                    Text(
+                      "Ahmedsamir@gmail.com",
+                      style: Theme.of(context).textTheme.titleSmall,
+                    )
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
-
       ),
     );
   }
