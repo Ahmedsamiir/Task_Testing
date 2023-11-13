@@ -1,0 +1,93 @@
+name: task_testing
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  ## -- ICON PACKAGES
+  cupertino_icons: ^1.0.2
+  line_awesome_flutter: ^2.0.0
+  flutter_native_splash: ^2.2.16
+
+  # State Management GetX
+  get: ^4.6.5
+
+
+  # Fonts App
+  google_fonts: ^5.0.0
+
+
+  ## -- OnBoarding PACKAGES
+  liquid_swipe: ^3.0.0
+  smooth_page_indicator: ^1.0.0+2
+
+  ## -- OTP TEXT FIELD PACKAGE
+  flutter_otp_text_field: ^1.1.1
+
+
+  ## -- FIREBASE PACKAGES
+  firebase_core: ^2.10.0
+  firebase_auth: ^4.1.0
+  cloud_firestore: ^4.13.0
+  firebase_dynamic_links: ^5.0.1
+
+
+  #flutter_facebook_auth: ^5.0.7
+  #google_sign_in: ^5.4.2
+
+
+
+  # Url Packages
+  url_launcher: ^6.1.7
+  share: ^2.0.4
+
+
+
+
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+
+
+
+
+
+# The following section is specific to Flutter packages.
+flutter:
+
+
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/logo/
+    - assets/images/
+    - assets/images/profile/
+    - assets/images/dashboard/
+    - assets/images/splash_images/
+    - assets/images/welcome_images/
+    - assets/images/forget_password/
+    - assets/images/on_boarding_images/
+
+
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages
