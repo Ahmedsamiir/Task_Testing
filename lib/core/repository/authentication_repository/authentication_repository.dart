@@ -143,8 +143,12 @@ class AuthenticationRepository extends GetxController {
   Future<void> loginWithEmailAndPassword(String email, String password) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
+      //firebaseUser != null ? Get.offAll(() => const HomeScreen()) : Get.to(() => const WelcomeScreen());
+
     } on FirebaseAuthException catch (e) {
-      final result = TExceptions.fromCode(e.code); // Throw custom [message] variable
+      final result = TExceptions.fromCode(e.code); // Thro
+      print("login result ==> $result");
+      // w custom [message] variable
       throw result.message;
     } catch (_) {
       const result = TExceptions();
