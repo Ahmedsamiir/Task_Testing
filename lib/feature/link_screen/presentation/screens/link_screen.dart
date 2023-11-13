@@ -51,6 +51,7 @@ class LinkScreen extends StatelessWidget {
                       final share = await dynamicLinkController.createDynamicLink(false, "Ahmed");
                       print("dynamicLinkController dynamicLinkController ==> ${share}");
                       Get.toNamed(const ViewScreen() as String);
+
                       // Implement share functionality here
                       // You can use the share package or any other method to share the link
                       // Example using the share package:
