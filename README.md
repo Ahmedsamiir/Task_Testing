@@ -58,16 +58,16 @@ Here are a few resources that are used in this task:
 
 
 # Packages Used : 
-  cupertino_icons
-  line_awesome_flutter
-  flutter_native_splash
-  get
-  google_fonts
+  - cupertino_icons
+  - line_awesome_flutter
+  - flutter_native_splash
+  - get
+  - google_fonts
 
-  firebase_core: ^2.10.0
-  firebase_auth: ^4.1.0
-  cloud_firestore: ^4.13.0
-  firebase_dynamic_links: ^5.0.1
+  - firebase_core
+  - firebase_auth
+  - cloud_firestore
+  - firebase_dynamic_links
 
   ### Thank You 
 
