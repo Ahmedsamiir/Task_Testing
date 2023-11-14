@@ -4,7 +4,6 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import '../../../../../../core/constants/image_strings.dart';
 import '../../../../../../core/constants/sizes.dart';
 import '../../../../../../core/constants/text_strings.dart';
-import '../../../../controller/login_controller.dart';
 import '../../signup/signup_screen.dart';
 
 class LoginFooterWidget extends StatelessWidget {
@@ -47,9 +46,7 @@ class LoginFooterWidget extends StatelessWidget {
             TextSpan(
                 text: tDontHaveAnAccount,
                 style: Theme.of(context).textTheme.bodyLarge,
-                children: const [
-                  TextSpan(text: tSignup, style: TextStyle(color: Colors.blue))
-                ]),
+                children: const [TextSpan(text: tSignup, style: TextStyle(color: Colors.blue))]),
           ),
         ),
       ],

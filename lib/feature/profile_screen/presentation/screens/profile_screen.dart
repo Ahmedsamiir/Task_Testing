@@ -5,8 +5,6 @@ import 'package:task_testing/core/constants/colors.dart';
 import 'package:task_testing/core/constants/sizes.dart';
 import 'package:task_testing/core/constants/text_strings.dart';
 import 'package:task_testing/core/repository/authentication_repository/authentication_repository.dart';
-import 'package:task_testing/feature/authentication/controller/login_controller.dart';
-import 'package:task_testing/feature/authentication/controller/signup_controller.dart';
 import 'package:task_testing/feature/authentication/models/user_model.dart';
 import 'package:task_testing/feature/profile_screen/controllers/profile_controller.dart';
 import 'package:task_testing/feature/profile_screen/presentation/screens/update_profile_screen.dart';
@@ -55,7 +53,9 @@ class ProfileScreen extends StatelessWidget {
                           onPressed: () => Get.to(() => UpdateProfileScreen()),
                           style:
                               ElevatedButton.styleFrom(backgroundColor: tPrimaryColor, side: BorderSide.none, shape: const StadiumBorder()),
-                          child: const Text(tEditProfile, style: TextStyle(color: tDarkColor),
+                          child: const Text(
+                            tEditProfile,
+                            style: TextStyle(color: tDarkColor),
                           ),
                         ),
                       ),

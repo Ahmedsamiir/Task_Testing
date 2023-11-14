@@ -7,7 +7,7 @@ import 'package:task_testing/feature/authentication/models/user_model.dart';
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
 
-  final userRepo = UserRepository.instance; //Call Get.put(UserRepo) if not define in AppBinding file (main.dart)
+  final userRepo = UserRepository.instance;
 
   // TextField Controllers to get data from TextFields
   final email = TextEditingController();
@@ -28,7 +28,6 @@ class SignUpController extends GetxController {
       isLoading.value = true;
       await emailAuthentication(user.email, user.password); //Perform authentication
       await userRepo.createUser(user); //Store Data in FireStore
-      // AuthenticationRepository.instance.firebaseUser.refresh();
     } catch (e) {
       isLoading.value = false;
       Get.snackbar("Error", e.toString(), snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 5));
@@ -43,24 +42,24 @@ class SignUpController extends GetxController {
       throw e.toString();
     }
   }
-  //
-  // /// [PhoneNoAuthentication]
-  // Future<void> phoneAuthentication(String phoneNo) async {
-  //   try {
-  //     await AuthenticationRepository.instance.phoneAuthentication(phoneNo);
-  //   } catch (e) {
-  //     throw e.toString();
-  //   }
-  // }
+//
+// /// [PhoneNoAuthentication]
+// Future<void> phoneAuthentication(String phoneNo) async {
+//   try {
+//     await AuthenticationRepository.instance.phoneAuthentication(phoneNo);
+//   } catch (e) {
+//     throw e.toString();
+//   }
+// }
 
-  // /// [GoogleSignInAuthentication]
-  // Future<void> googleSignIn() async {
-  //   try {
-  //     isLoading.value = true;
-  //     await AuthenticationRepository.instance.signInWithGoogle();
-  //   } catch (e) {
-  //     isLoading.value = false;
-  //     Get.snackbar("Error", e.toString(), snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 5));
-  //   }
-  // }
+// /// [GoogleSignInAuthentication]
+// Future<void> googleSignIn() async {
+//   try {
+//     isLoading.value = true;
+//     await AuthenticationRepository.instance.signInWithGoogle();
+//   } catch (e) {
+//     isLoading.value = false;
+//     Get.snackbar("Error", e.toString(), snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 5));
+//   }
+// }
 }

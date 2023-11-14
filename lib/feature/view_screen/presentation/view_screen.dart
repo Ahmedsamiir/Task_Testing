@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:task_testing/core/constants/sizes.dart';
 import 'package:task_testing/core/constants/text_strings.dart';
 
 class ViewScreen extends StatelessWidget {
-  const ViewScreen({super.key});
+  const ViewScreen({super.key, required this.name, required this.email});
+
+  final String name;
+  final String email;
 
   @override
   Widget build(BuildContext context) {
-    // final Map<String, dynamic> arguments = Get.arguments;
-    // String name = arguments['name'];
-    // String email = arguments['email'];
-
     return SafeArea(
       child: Scaffold(
         body: Center(
@@ -23,6 +21,8 @@ class ViewScreen extends StatelessWidget {
                 const SizedBox(
                   height: tDefaultSize,
                 ),
+
+                /// ---- Title [Name - Email]
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -34,7 +34,6 @@ class ViewScreen extends StatelessWidget {
                     const SizedBox(
                       height: tDefaultSize,
                     ),
-
                     Text(
                       tEmail,
                       style: Theme.of(context).textTheme.titleMedium,
@@ -44,19 +43,21 @@ class ViewScreen extends StatelessWidget {
                 const SizedBox(
                   width: tDefaultSize / 3,
                 ),
+
+                /// ---- Show Results Of  [Name - Email]
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      "Ahmed Samir Ibrahim",
+                      name,
                       style: Theme.of(context).textTheme.titleSmall,
                     ),
                     const SizedBox(
                       height: tDefaultSize,
                     ),
                     Text(
-                      "Ahmedsamir@gmail.com",
+                      email,
                       style: Theme.of(context).textTheme.titleSmall,
                     )
                   ],

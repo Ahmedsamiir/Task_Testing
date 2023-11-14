@@ -2,7 +2,6 @@ class TExceptions implements Exception {
   /// The associated error message.
   final String message;
 
-  /// {@macro log_in_with_email_and_password_failure}
   const TExceptions([this.message = 'An unknown exception occurred.']);
 
   /// Create an authentication message
@@ -30,8 +29,7 @@ class TExceptions implements Exception {
       case 'invalid-phone-number':
         return const TExceptions('The provided Phone Number is invalid.');
       case 'operation-not-allowed':
-        return const TExceptions(
-            'The provided sign-in provider is disabled for your Firebase project.');
+        return const TExceptions('The provided sign-in provider is disabled for your Firebase project.');
       case 'session-cookie-expired':
         return const TExceptions('The provided Firebase session cookie is expired.');
       case 'uid-already-exists':

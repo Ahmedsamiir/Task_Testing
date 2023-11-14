@@ -15,15 +15,13 @@ class ProfileController extends GetxController {
     try {
       final currentUserEmail = _authRepo.getUserEmail;
       if (currentUserEmail.isEmpty) {
-        Get.snackbar("Error", "No user found!",
-            snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 3));
+        Get.snackbar("Error", "No user found!", snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 3));
         return;
       } else {
         return _userRepo.getUserDetails(currentUserEmail);
       }
     } catch (e) {
-      Get.snackbar("Error", e.toString(),
-          snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 3));
+      Get.snackbar("Error", e.toString(), snackPosition: SnackPosition.BOTTOM, duration: const Duration(seconds: 3));
     }
   }
 

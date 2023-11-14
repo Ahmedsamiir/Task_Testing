@@ -48,7 +48,8 @@ dependencies:
 
   # Url Packages
   url_launcher: ^6.1.7
-  share: ^2.0.4
+  share_plus: ^7.2.1
+
 
 
 

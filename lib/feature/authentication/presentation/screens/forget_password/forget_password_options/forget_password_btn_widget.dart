@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../../core/constants/colors.dart';
 
 class ForgetPasswordBtnWidget extends StatelessWidget {
@@ -17,7 +16,6 @@ class ForgetPasswordBtnWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     //Use for Dark Theme
     final bool isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
 
@@ -28,7 +26,6 @@ class ForgetPasswordBtnWidget extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10.0),
           color: isDark ? tSecondaryColor : Colors.grey.shade200,
-          // color: Colors.grey.shade200,
         ),
         child: Row(
           children: [

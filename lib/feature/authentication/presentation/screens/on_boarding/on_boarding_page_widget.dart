@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../core/constants/sizes.dart';
 import '../../../models/model_on_boarding.dart';
 
@@ -15,7 +14,7 @@ class OnBoardingPageWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Container(
-      padding:  const EdgeInsets.all(tDefaultSize),
+      padding: const EdgeInsets.all(tDefaultSize),
       color: model.bgColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,

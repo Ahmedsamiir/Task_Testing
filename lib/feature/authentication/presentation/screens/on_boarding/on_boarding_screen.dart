@@ -35,8 +35,7 @@ class OnBoardingScreen extends StatelessWidget {
               ),
               child: Container(
                 padding: const EdgeInsets.all(20.0),
-                decoration: const BoxDecoration(
-                    color: tDarkColor, shape: BoxShape.circle),
+                decoration: const BoxDecoration(color: tDarkColor, shape: BoxShape.circle),
                 child: const Icon(Icons.arrow_forward_ios),
               ),
             ),
@@ -65,6 +64,4 @@ class OnBoardingScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }

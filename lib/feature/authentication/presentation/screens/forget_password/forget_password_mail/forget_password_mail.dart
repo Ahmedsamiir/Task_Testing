@@ -5,7 +5,6 @@ import '../../../../../../core/constants/image_strings.dart';
 import '../../../../../../core/constants/sizes.dart';
 import '../../../../../../core/constants/text_strings.dart';
 
-
 class ForgetPasswordMailScreen extends StatelessWidget {
   const ForgetPasswordMailScreen({Key? key}) : super(key: key);
 
@@ -44,11 +43,7 @@ class ForgetPasswordMailScreen extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20.0),
-                      SizedBox(
-                          width: double.infinity,
-                          child: ElevatedButton(
-                              onPressed: () {},
-                              child: const Text(tNext))),
+                      SizedBox(width: double.infinity, child: ElevatedButton(onPressed: () {}, child: const Text(tNext))),
                     ],
                   ),
                 ),

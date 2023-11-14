@@ -44,7 +44,7 @@ class UpdateProfileScreen extends StatelessWidget {
                       const SizedBox(height: 50),
 
                       /// -- Form (Get data and pass it to FormScreen)
-                      ProfileFormScreen(fullName: fullName, email: email,password: password, user: user),
+                      ProfileFormScreen(fullName: fullName, email: email, password: password, user: user),
                     ],
                   );
                 } else if (snapshot.hasError) {

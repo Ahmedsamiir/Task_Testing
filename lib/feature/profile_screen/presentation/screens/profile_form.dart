@@ -7,7 +7,6 @@ import 'package:task_testing/core/constants/text_strings.dart';
 import '../../../authentication/models/user_model.dart';
 import '../../controllers/profile_controller.dart';
 
-
 class ProfileFormScreen extends StatelessWidget {
   const ProfileFormScreen({
     Key? key,
@@ -24,7 +23,6 @@ class ProfileFormScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final controller = Get.put(ProfileController());
 
     return Form(
@@ -40,10 +38,6 @@ class ProfileFormScreen extends StatelessWidget {
             decoration: const InputDecoration(label: Text(tEmail), prefixIcon: Icon(LineAwesomeIcons.envelope_1)),
           ),
           const SizedBox(height: tFormHeight - 20),
-          // TextFormField(
-          //   controller: phoneNo,
-          //   decoration: const InputDecoration(label: Text(tPhoneNo), prefixIcon: Icon(LineAwesomeIcons.phone)),
-          // ),
           const SizedBox(height: tFormHeight - 20),
           TextFormField(
             controller: password,
@@ -70,8 +64,7 @@ class ProfileFormScreen extends StatelessWidget {
 
                 await controller.updateRecord(userData);
               },
-              style: ElevatedButton.styleFrom(
-                  backgroundColor: tPrimaryColor, side: BorderSide.none, shape: const StadiumBorder()),
+              style: ElevatedButton.styleFrom(backgroundColor: tPrimaryColor, side: BorderSide.none, shape: const StadiumBorder()),
               child: const Text(tEditProfile, style: TextStyle(color: tDarkColor)),
             ),
           ),

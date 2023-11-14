@@ -1,63 +1,65 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'dart:developer';
 import 'package:firebase_dynamic_links/firebase_dynamic_links.dart';
 import 'package:get/get.dart';
-import 'package:share/share.dart';
-import 'package:task_testing/core/repository/authentication_repository/authentication_repository.dart';
-import 'package:task_testing/core/repository/user_repository/user_repository.dart';
-import 'package:task_testing/feature/authentication/controller/signup_controller.dart';
 import 'package:task_testing/feature/view_screen/presentation/view_screen.dart';
 
 class DynamicLinkController extends GetxController {
-  // static DynamicLinkController get instance => Get.find();
+  FirebaseDynamicLinks dynamicLinks = FirebaseDynamicLinks.instance;
 
-  /// Repositories
-  final _authRepo = AuthenticationRepository.instance;
-  final _userRepo = UserRepository.instance;
-
-  static final controller = Get.put(SignUpController());
-  FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-
-
-  /// --- Create the link
-  Future<String> createDynamicLink(bool short, String refName) async {
-    //String? _linkMessage;
+  /// --- Creation Of Link Here
+  Future<String> createLink(String name, String email) async {
     final dynamicLinkParams = DynamicLinkParameters(
-      link: Uri.parse("https://www.mylink.com/$refName"),
+      link: Uri.parse("https://tasktesting.page.link/profile?name=$name&email=$email"),
       uriPrefix: "https://tasktesting.page.link",
-      androidParameters: const AndroidParameters(packageName: "com.example.task_testing", minimumVersion: 0),
-      iosParameters: const IOSParameters(bundleId: "com.example.task_testing", minimumVersion: "0"),
+      androidParameters: const AndroidParameters(
+        packageName: "com.example.task_testing",
+      ),
+      iosParameters: const IOSParameters(
+        bundleId: "com.example.task_testing",
+      ),
     );
-    final dynamicLink = await FirebaseDynamicLinks.instance.buildShortLink(dynamicLinkParams).then((value) {
-        print(value.shortUrl.queryParameters);
-    });
+    final unguessableDynamicLink = await FirebaseDynamicLinks.instance.buildShortLink(
+      dynamicLinkParams,
+    );
 
-    return dynamicLink.toString();
-
-    // Uri url;
-    // if (short){
-    //   final shortLink = await FirebaseDynamicLinks.instance.buildShortLink(parameters);
-    //   url = shortLink.shortUrl;
-    // }else{
-    //   url = await FirebaseDynamicLinks.instance.buildLink(parameters);
-    // }
-
-    // _linkMessage = url.toString();
-    // return _linkMessage;
+    return unguessableDynamicLink.shortUrl.toString();
   }
 
-  /// --- Init Dynamic link
+  /// --- Init Dynamic Link
+  Future<void> initDynamicLinks() async {
+    dynamicLinks.onLink.listen((dynamicLinkData) {
+      final String deepLink = dynamicLinkData.link.toString();
 
-  void initDynamicLink() async {
-    final instanceLink = await FirebaseDynamicLinks.instance.getInitialLink();
-    if (instanceLink != null) {
-      final Uri refLink = instanceLink.link;
-      Share.share("This is the link ${refLink.data}");
+      final Map<String, String> queryParameters = dynamicLinkData.link.queryParameters;
+
+      log(dynamicLinkData.link.toString());
+
+      if (deepLink.isEmpty) return;
+      handleDeepLink(queryParameters);
+    }).onError((error) {});
+    initUniLinks();
+  }
+
+  Future<void> initUniLinks() async {
+    try {
+      final initialLink = await dynamicLinks.getInitialLink();
+      if (initialLink == null) return;
+      handleDeepLink(initialLink.link.queryParameters);
+    } catch (e) {
+      log(e.toString());
     }
   }
 
-  @override
-  void onInit() {
-    super.onInit();
-    initDynamicLink();
+  /// --- Handling Deep Link
+
+  void handleDeepLink(Map<String, String> queryParameters) {
+    String? name = queryParameters['name'];
+    String? email = queryParameters['email'];
+    if (name != null && email != null) {
+      Get.to(ViewScreen(
+        name: name,
+        email: email,
+      ));
+    }
   }
 }

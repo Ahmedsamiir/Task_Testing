@@ -10,7 +10,6 @@ import 'package:task_testing/core/utils/animations/fade_in_animation/fade_in_ani
 import 'package:task_testing/feature/authentication/presentation/screens/login/login_screen.dart';
 import 'package:task_testing/feature/authentication/presentation/screens/signup/signup_screen.dart';
 
-
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
@@ -50,13 +49,11 @@ class WelcomeScreen extends StatelessWidget {
                   children: [
                     Hero(
                         tag: 'welcome-image-tag',
-                        child: Image(
-                            image: const AssetImage(tWelcomeScreenImage), width: width * 0.7, height: height * 0.6)),
+                        child: Image(image: const AssetImage(tWelcomeScreenImage), width: width * 0.7, height: height * 0.6)),
                     Column(
                       children: [
                         Text(tWelcomeTitle, style: Theme.of(context).textTheme.displayMedium),
-                        Text(tWelcomeSubTitle,
-                            style: Theme.of(context).textTheme.bodyLarge, textAlign: TextAlign.center),
+                        Text(tWelcomeSubTitle, style: Theme.of(context).textTheme.bodyLarge, textAlign: TextAlign.center),
                       ],
                     ),
                     Row(

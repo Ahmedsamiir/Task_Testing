@@ -6,13 +6,11 @@ import '../../../../../../core/constants/image_strings.dart';
 import '../../../../../../core/constants/sizes.dart';
 import '../../../../../../core/constants/text_strings.dart';
 
-
 class ForgetPasswordPhoneScreen extends StatelessWidget {
   const ForgetPasswordPhoneScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    //Just In-case if you want to replace the Image Color for Dark Theme
     final brightness = MediaQuery.of(context).platformBrightness;
     final bool isDark = brightness == Brightness.dark;
 
@@ -47,9 +45,7 @@ class ForgetPasswordPhoneScreen extends StatelessWidget {
                       const SizedBox(height: 20.0),
                       SizedBox(
                         width: double.infinity,
-                        child: ElevatedButton(
-                            onPressed: () {},
-                            child: const Text(tNext)),
+                        child: ElevatedButton(onPressed: () {}, child: const Text(tNext)),
                       ),
                     ],
                   ),
